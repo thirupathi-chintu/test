@@ -1,0 +1,27 @@
+const puppeteer = require('puppeteer');
+
+const windowSet = (page, name, value) =>
+  page.evaluateOnNewDocument(`
+    Object.defineProperty(window, '${name}', {
+      get() {
+        return '${value}'
+      }
+    })
+  `)
+);
+
+const { foo } = process.env;
+
+(async () => {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  await windowSet(page, 'foo', foo)
+
+  await page.goto('https://a.com');
+  const html = await page.evaluate(() => {
+    window.foo // <---- Whatever was set on `process.env`
+  });
+
+  await browser.close();
+})();
