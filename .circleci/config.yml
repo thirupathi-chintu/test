@@ -38,8 +38,8 @@ jobs:
             cp ~/workspace/test-results.json \
               ~/project
       - run:
-          name: Run danger
-          command: npm run danger ci
+          name: Run echo
+          command: echo "hello world"
           # Runs dangerjs with danger-plugin-jest
           # If there are failing tests the plugin will fail this
           # job by reading from test-results.json
