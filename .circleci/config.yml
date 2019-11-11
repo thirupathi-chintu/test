@@ -1,0 +1,45 @@
+jobs:
+  execute_test_runner:
+    steps:
+      - attach_workspace:
+          at: /root/workspace
+      - run:
+          name: Running test suite
+          command: |
+            if npm run test -- --outputFile test-results.json --json ; then
+              echo 'export TESTS_PASS=true' >> $BASH_ENV
+            else
+              echo 'export TESTS_PASS=false' >> $BASH_ENV
+            fi
+      # This test runner job never fails. I'm storing the result as an
+      # environment variable, but it turns out I don't need to
+      # because the danger job will fail if tests are failing.
+      # Left it in here just in case it's useful for anyone.
+      - run:
+          name: Saving test results
+          command: |
+            cp test-results.json \
+              /root/workspace
+      - persist_to_workspace:
+          root: /root/workspace
+          paths:
+            - test-results.json
+
+  execute_danger:
+    working_directory: /root/project
+    steps:
+      - attach_workspace:
+          at: /root/workspace
+      - checkout:
+          path: /root/project
+      - run:
+          name: Copy test results into project
+          command: |
+            cp ~/workspace/test-results.json \
+              ~/project
+      - run:
+          name: Run danger
+          command: npm run danger ci
+          # Runs dangerjs with danger-plugin-jest
+          # If there are failing tests the plugin will fail this
+          # job by reading from test-results.json
