@@ -1,5 +1,9 @@
+version: 2.1
 jobs:
   execute_test_runner:
+    build:
+    docker:
+     - image: ubuntu
     steps:
       - attach_workspace:
           at: /root/workspace
@@ -36,7 +40,7 @@ jobs:
           name: Copy test results into project
           command: |
             cp ~/workspace/test-results.json \
-              ~/project
+              ~/test
       - run:
           name: Run echo
           command: echo "hello world"
