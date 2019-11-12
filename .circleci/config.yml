@@ -1,19 +1,3 @@
-# version: 2
-# jobs:
-#   build:
-#     working_directory: ~/foo
-#     docker:
-#       - image: ruby:2.3.3
-#     steps:
-#       - checkout
-#       - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3  # must pass to proceed
-#       - run:
-#           halt_build_on_fail: false  # default true
-#           command: bin/rubocop
-#       - run:
-#           halt_build_on_fail: false  # default true
-#           command: bin/rspec
-
 version: 2.1
 jobs:
   build:
@@ -22,23 +6,38 @@ jobs:
     working_directory: ~/home
     steps:
       - checkout
-      - attach_workspace:
-          at: /root/workspace
-      - run:
-          name: Running test suite
+      - run: 
+          name: sample
           command: |
-            if npm run test -- --outputFile test-results.json --json ; then
-              echo 'export TESTS_PASS=true' >> $BASH_ENV
-            else
-              echo 'export TESTS_PASS=false' >> $BASH_ENV
-            fi
-      - store_test_results:
-           path: /tmp/test-results
-      - run:
-          name: dir
-          command: |
-             cd /tmp/test-results
-             ls
+            date
+            time
+      
+      
+# version: 2.1
+# jobs:
+#   build:
+#     docker:
+#      - image: ubuntu
+#     working_directory: ~/home
+#     steps:
+#       - checkout
+#       - attach_workspace:
+#           at: /root/workspace
+#       - run:
+#           name: Running test suite
+#           command: |
+#             if npm run test -- --outputFile test-results.json --json ; then
+#               echo 'export TESTS_PASS=true' >> $BASH_ENV
+#             else
+#               echo 'export TESTS_PASS=false' >> $BASH_ENV
+#             fi
+#       - store_test_results:
+#            path: /tmp/test-results
+#       - run:
+#           name: dir
+#           command: |
+#              cd /tmp/test-results
+#              ls
 
     
 
