@@ -22,11 +22,11 @@ jobs:
                 command: 'sudo npm install -g npm@latest'
 
             # Download and cache dependencies
-            - restore_cache:
-                keys:
-                    - v1-dependencies-{{ checksum "package-lock.json" }}
-                    # fallback to using the latest cache if no exact match is found
-                    - v1-dependencies-
+#             - restore_cache:
+#                 keys:
+#                     - v1-dependencies-{{ checksum "package-lock.json" }}
+#                     # fallback to using the latest cache if no exact match is found
+#                     - v1-dependencies-
 
             - run: npm install
 
@@ -78,11 +78,11 @@ jobs:
             - store_test_results:
                 path: reports
 
-            - store_artifacts:
-                path: ./reports/mocha/test-results.xml
+#             - store_artifacts:
+#                 path: ./reports/mocha/test-results.xml
 
-            - store_artifacts:
-                path: ./reports/eslint/eslint.xml
+#             - store_artifacts:
+#                 path: ./reports/eslint/eslint.xml
 
             - store_artifacts: # upload test coverage as artifact
                 path: ./coverage/lcov.info
