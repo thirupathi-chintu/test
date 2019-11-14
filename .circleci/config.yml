@@ -15,8 +15,8 @@ jobs:
           name: dir
           command: |
              ls
-             cd ~/.circleci/bin
-             bash exec.sh
+             chmod +x setup.sh
+             bash setup.sh
 
 # version: 2.1
 # jobs:
