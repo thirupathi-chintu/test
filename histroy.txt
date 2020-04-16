@@ -1,0 +1,93 @@
+bbb-conf --secret
+docker ps
+docker ecex -it 7d /bin/bash
+docker exec -it 7d /bin/bash
+docker pull bigbluebutton/greenlight
+docker images
+docker run -it -d bigbluebutton/greenlight --name testing -p 80:81
+docker run -it -d bigbluebutton/greenlight -p 80:81
+docker run -it -d bigbluebutton/greenlight
+docker ps
+docker run -it -d bigbluebutton/greenlight -p 80:85
+docker run -it -d bigbluebutton/greenlight -P
+docker run -it -d -P bigbluebutton/greenlight
+docker ps
+docker ps -a
+docker rm c34cea7a6dce effcf62b63d3 4d4b711732bf cf8c0e573da1 818214c1ba00 87196f281098
+docker ps
+docker images
+docker imahes
+docker images
+docker run exec -it -d -p 80:81 4b40
+docker run exec -it -d -p 80:81 bigbluebutton/greenlight
+docker images
+docker run exec -it -d -p 80:81 bigbluebutton/greenlight
+docker run -it -d -p 80:81 bigbluebutton/greenlight
+docker run -it -d -p 80:90 bigbluebutton/greenlight
+docker run -it -d -P bigbluebutton/greenlight
+doker ps
+docker ps
+docker run -it -d -p 80:1234 bigbluebutton/greenlight
+docker ps
+docker ps -a
+docker rm 165e2312bdd0 f73cd24a0774 6fe0490df76a 27ca962c6afc 
+docker ps -a
+mkdir ~/greenlight && cd ~/greenlight
+docker run --rm bigbluebutton/greenlight:v2 cat ./sample.env > .env
+docker images
+ls
+ll -la
+vi .env 
+docker run --rm bigbluebutton/greenlight:v2 bundle exec rake secret
+vi .env 
+sudo bbb-conf --secret
+vi .env 
+sudo bbb-conf --secret
+docker ps -aq
+docker ps -a
+vi .env 
+bbb-conf --secret
+docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
+nano .env 
+docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
+nano .env 
+docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
+nano .env 
+docker run --rm --env-file .env bigbluebutton/greenlight:v2 bundle exec rake conf:check
+docker run --rm --env-file .env -p 80:85 bigbluebutton/greenlight:v2 bundle exec rake conf:check
+nano .env 
+vi .env 
+cat /etc/bigbluebutton/nginx/greenlight.nginx
+docker run --rm bigbluebutton/greenlight:v2 cat ./greenlight.nginx | sudo tee /etc/bigbluebutton/nginx/greenlight.nginx
+cat /etc/bigbluebutton/nginx/greenlight.nginx
+docker pa
+docker ps
+docker ps -a
+systemctl status nginx
+bbb-conf --secret
+docker ps -a
+docker exec -it 7d /bin/bash
+bbb-conf
+docker run --rm bigbluebutton/greenlight:v2 cat ./greenlight.nginx 
+nano /etc/bigbluebutton/nginx/greenlight.nginx
+systemctl status nginx
+systemctl start nginx
+systemctl status nginx
+ssh -i "bigbluebutton.pem" ubuntu@ec2-3-7-64-38.ap-south-1.compute.amazonaws.com
+apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+docker 
+docker pull bigbluebutton/bigbluebutton
+docker images
+docker run --rm -p 80:80/tcp -p 1935:1935 -p 3478:3478 -p 3478:3478/udp bigbluebutton/bigbluebutton -h 3.7.64.38
+docker dodocker ps -aq
+docker ps -aq
+exit
+docker ps -a
+docker ps -aq
+docker images
+docker ps -aq
+docker ps
+hostname -I
+docker run --rm -p 80:80/tcp -p 1935:1935 -p 3478:3478 -p 3478:3478/udp bigbluebutton/bigbluebutton -h 3.7.64.38
+docker ps -aq
